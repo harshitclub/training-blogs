@@ -30,15 +30,13 @@ myBody.appendChild(myh1);
 myBody.appendChild(btn);
 
 async function myBlogs() {
-  const myh2 = document.createElement("h2");
-  const mybr = document.createElement("br");
   const url = "https://jsonplaceholder.typicode.com/posts";
   const data = await fetch(url);
   const res = await data.json();
-  myBody.appendChild(myh2);
 
   res.map((post) => {
-    myh2.innerText += `${post.title}`;
+    myBody.innerHTML += `<h2>${post.title}</h2>
+    <p>${post.body}</p>`;
   });
   console.log(res);
 }
